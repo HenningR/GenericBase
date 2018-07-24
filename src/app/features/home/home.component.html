@@ -1,0 +1,87 @@
+<div class="row" style="padding-top: 20px">
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">Video Source</div>
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <input type="text" [(ngModel)]="sourceStr" placeholder="Enter video source" style="width:100%" />
+  </div>
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <span>Type</span>
+    </div>
+    <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <select  [(ngModel)]="videoType"  style="width:100%;max-width:100%;">
+            <option *ngFor="let parameter of videoTypes" [value]="parameter.description">{{parameter.description}}</option>
+          </select>
+      </div>
+
+
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <input type="button" (click)="submitSource()" value="Add" style="float:right">
+  </div>
+
+  <div class=" col-lg-12 col-md-12 col-sm-12 col-xs-12" style="padding-top: 20px">
+
+
+    <!-- <video width="100%" height="auto" controls (click)="toggleVideo($event)" #videoPlayer>
+      <source [src]="videoSource" type="video/mp4"> Your browser does not support HTML5 video.
+    </video> -->
+
+
+    <!-- <vg-player (onPlayerReady)="onPlayerReady($event)" crossorigin>
+        <video [vgMedia]="media" #media id="singleVideo"  preload="auto" controls>
+            <source [src]="sources.src" [type]="sources.type" webkit-playsinline
+            playsinline
+            autoplay>
+        </video>
+    </vg-player> -->
+
+
+    <!-- <vg-player >
+        <video [vgMedia]="media" #media id="singleVideo"  preload="auto" controls>
+            <source [src]="videoSource" type="video/mp4">
+        </video>
+    </vg-player> -->
+
+
+    <vg-player (onPlayerReady)="onPlayerReady($event)">
+        <vg-buffering></vg-buffering>
+    
+        <vg-controls>
+            <vg-play-pause></vg-play-pause>
+            <vg-playback-button></vg-playback-button>
+    
+            <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-scrub-bar>
+                <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+            </vg-scrub-bar>
+    
+            <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display>
+    
+            <vg-mute></vg-mute>
+            <vg-volume></vg-volume>
+    
+            <vg-fullscreen></vg-fullscreen>
+        </vg-controls>
+    
+        <video #media
+               [vgMedia]="media"
+               [src]="currentItem.src"
+               id="singleVideo"
+               preload="auto"
+               crossorigin>
+        </video>
+    </vg-player>
+
+    <H3>Playlist</H3>
+    <ul>
+        <li *ngFor="let item of playlist; let $index = index"
+            (click)="onClickPlaylistItem(item, $index)"
+            [class.selected]="item === currentItem">
+            {{ item.title }}
+        </li>
+    </ul>
+
+  </div>
+</div>

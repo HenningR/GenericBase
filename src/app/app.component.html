@@ -1,20 +1,37 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<app-menu (change)="routeChange($event)" [ngClass]="menuServ.showMenu == true ?  'appMenuShow' : 'appMenuHide' "></app-menu>
+<div id="header" class="ui-header-fixed ui-bar-b" style="clear:both;font-family:Georgia !important;">
+    <div style="display:inline;float:left;width:15%;">
+        <label class="ui-btn" style="height:100%;background-color:#1d1d1d;">
+            <a (click)="toggleMenu()" class="ico_toggle" rel="external" style="clear:both;float:left"></a>
+            <span class="smallText"></span>
+        </label>
+        <br />
+    </div>
+    <div style="display:inline;float:left;width:70%;">
+        <label class="ui-btn" style="background-color:#1d1d1d;color:white;text-transform: uppercase;font-family:Georgia !important;">Generic Base</label>
+        <label class="ui-btn" style="background-color:#1d1d1d;color:white;font-size:x-small;padding:0;font-family:Georgia !important;">ver 1.0.0</label>
+    </div>
+    <div style="display:inline;float:left;width:15%;">
+    </div>
+    <div   style="clear:both;height:15px; font-family:Georgia !important;z-index: 9999;background-color: #1d1d1d;color:white;opacity: 0.4">
+            <span style="float:left;font-size:x-small;text-transform: capitalize " *ngIf="menuServ.breadCrumb != ''"> Navigation : {{menuServ.breadCrumb}} </span>
+    </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
+
+<div id="panel" style="padding-top:0" (click)="closeMenu()" >
+    <router-outlet></router-outlet>
+</div>
+
+
+<div id="footer" class="ui-footer-fixed ui-bar-b" style="clear:both;height:30px; font-family:Georgia !important;z-index: 9999;">
+    <div style="display:inline;float:left;width:15%;border: solid medium white;height:27px">
+
+    </div>
+    <div style="display:inline;float:left;width:70%;border: solid medium white;height:27px; text-align: center">
+            &copy;Copyright  
+    </div>
+    <div style="display:inline;float:left;width:15%;border: solid medium white;height:27px">
+            
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div *ngIf="menuServ.showMenu == true; then showMenuBar">
+</div>
+<ng-template #showMenuBar>
+    <nav id="menu" class="menu">
+
+        <header class="menu-header">
+            <span class="menu-header-title">MENU</span>
+        </header>
+
+        <h3 class="menu-section-title" style="border-bottom: solid medium;padding-bottom: 10px">Navigation</h3>
+
+
+        <ng-template >
+
+            <ul class="menu-section-list">
+                <li>
+                    <a style="font-family: Century Gothic" (click)="changeRoute('/')">
+                        <span style="padding-left:10px">Login</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </ng-template>
+
+       
+        <section class="menu-section" style="border-top: solid medium gray;padding-top: 10px">
+
+            <ul class="menu-section-list">
+                <li>
+                    <a class="ico_info" onclick='return alert(""
+            + "Generic Base App" + "\n"
+            + "version 1.0.0");' target="_blank">
+                        <span style="padding-left:20px">About</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </nav>
+</ng-template>
